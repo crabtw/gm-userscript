@@ -5,8 +5,9 @@
 // @include        *
 // ==/UserScript==
 
-if(document.getElementsByName('generator')[0].
-   content.search('Discuz') != -1) {
+var gen = document.getElementsByName('generator');
+
+if(gen.length != 0 && gen[0].content.search('Discuz') != -1) {
     var links = document.links;
 
     for(var i = 0; i < links.length; ++i) {

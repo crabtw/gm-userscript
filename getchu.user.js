@@ -23,7 +23,8 @@ function searchPage() {
     var links = document.links;
     
     for(var i = 0; i < links.length; ++i) {
-        if(links[i].className != 'greenb') continue;
+        if(links[i].className != 'greenb' &&  links[i].className != 'blueb')
+            continue;
         
         var paren = links[i].parentNode
         paren.appendChild(document.createElement('br'));
@@ -48,6 +49,10 @@ function infoPage() {
     );
 }
 
+function fixSearchForm() {
+    document.getElementsByName('form1')[0].action = '/php/search.phtml';
+}
+
 switch(location.pathname) {
 case '/php/calendar.phtml':
 case '/php/search.phtml':
@@ -55,5 +60,8 @@ case '/php/search.phtml':
     break;
 case '/soft.phtml':
     infoPage();
+    break;
+case '/php/search_top.phtml':
+    fixSearchForm();
     break;
 }

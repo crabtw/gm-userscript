@@ -37,19 +37,15 @@ function searchPage() {
 }
 
 function infoPage() {
-    var span = document.getElementsByTagName('span');
+    var title = document.getElementById('soft-title');
     
-    for(var i = 0; i < span.length; ++i) {
-        if(span[i].style.color != 'rgb(0, 0, 0)') continue;
-
-        span[i].appendChild(document.createElement('br'));
-        span[i].appendChild(
-            createTextArea(
-                span[i].textContent.replace(/^\s+|\s+$/g, ''),
-                document.URL
-            )
-        );
-    }
+    title.appendChild(document.createElement('br'));
+    title.appendChild(
+        createTextArea(
+            title.textContent.replace(/^\s+|\s+$/g, ''),
+            document.URL
+        )
+    );
 }
 
 switch(location.pathname) {

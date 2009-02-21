@@ -18,7 +18,7 @@ const cosTable = '/Cnstdsel/CosTable.aspx';
 const cosList = '/Cnstdsel/CosList.aspx';
 const selOut = '/Cnstdsel/SelOut.aspx';
 
-const css = 
+const css =
 '.form {width:60px;float:right} select {width:160px}'+
 'body {width:120px} .label {width:50px;float:left;text-align:right}'+
 'input {width:60px}';
@@ -46,7 +46,7 @@ function $(n) { return doc.getElementById(n); }
 function parseInfo(page) {
     var pattern = '<td align="center" class="cls_info_main">(.*?)<\/td>';
     var info = page.match(new RegExp(pattern, 'g')) || [];
-    
+
     return info.map(function(e) {
         return e.match(pattern)[1].replace(/\s/g, '');
     });
@@ -153,7 +153,7 @@ function addCourse(id, classNo, type) {
             get(selOut, function(resp) {
                 if(resp.responseText.search(id) == -1) return;
                 var opt = doc.getElementsByTagName('option');
-            
+
                 for(var i = 0; i < opt.length; ++i) {
                     if(opt[i].value.search(id) != -1) {
                         opt[i].selected = true;
@@ -176,7 +176,7 @@ function start() {
     $('add').disabled = true;
     $('del').disabled = true;
     $('start').disabled = true;
- 
+
     var delay = parseInt($('delay').value) * 1000;
     timer = setInterval(function() {
         var tasks = GM_getValue(gmVal).split(sep).map(function(e) {

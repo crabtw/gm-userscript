@@ -47,7 +47,7 @@ function checkList() {
     var form = document.forms['maildata'];
     var list = form.elements['MailMember'];
     var mail = form.elements['To'];
-    
+
     mail.value = '';
     for(var i = 0; i < list.length; ++i) {
         if(list[i].checked)
@@ -65,7 +65,7 @@ function selAll(checked) {
 function insertApply() {
     var vactype = document.getElementsByName('Vactype').value;
     var reason = document.getElementsByName('reason').value;
-    
+
     var fyear = document.getElementsByName('FYear').value;
     var fmonth = document.getElementsByName('FMonth').value;
     var fday = document.getElementsByName('FDay').value;
@@ -95,13 +95,13 @@ function foldNews() {
     var newscript = document.createElement("script");
     newscript.text = showhidedetail_new.toString();
     document.body.appendChild(newscript);
-    
+
     var spantags = document.getElementsByTagName("span");
     for(var i = 0; i < spantags.length; ++i) {
         spantags[i].setAttribute("onclick", "showhidedetail_new(event)");
         spantags[i].removeAttribute("onmouseover");
         spantags[i].removeAttribute("onmouseout");
-        
+
         spantags[i].parentNode.
            getElementsByTagName("table")[0].style.display = "none";
     }
@@ -162,7 +162,7 @@ function foldWork() {
         showhidedetail_new.toString() +
         showhidedetail1_new.toString();
     document.body.appendChild(newscript);
-    
+
     var spantags = document.getElementsByTagName("span");
     for(var i = 0, j = 0; i < spantags.length; ++i) {
         var cond = spantags[i].className == "worklist1";
@@ -173,7 +173,7 @@ function foldWork() {
         );
         spantags[i].removeAttribute("onmouseover");
         spantags[i].removeAttribute("onmouseout");
-        
+
         if(cond) {
             var tables = document.evaluate(
                 "code/following-sibling::table",
@@ -216,7 +216,7 @@ function foldCourse() {
     var newscript = document.createElement("script");
     newscript.text = showhidedetail1_new.toString();
     document.body.appendChild(newscript);
-    
+
     var divtags = document.getElementsByTagName("div");
     for(var i = 0; i < divtags.length; ++i)
         divtags[i].style.display = 'none';
@@ -260,7 +260,7 @@ function print() {
         'document.getElementById("enter").style.display="none";'+
         'window.print();'
     );
-} 
+}
 
 function printPhoto() {
     document.getElementsByName('print')[0].

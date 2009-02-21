@@ -21,11 +21,11 @@ function createTextArea(name, url) {
 
 function searchPage() {
     var links = document.links;
-    
+
     for(var i = 0; i < links.length; ++i) {
         if(links[i].className != 'greenb' &&  links[i].className != 'blueb')
             continue;
-        
+
         var paren = links[i].parentNode
         paren.appendChild(document.createElement('br'));
         paren.appendChild(
@@ -39,7 +39,7 @@ function searchPage() {
 
 function infoPage() {
     var title = document.getElementById('soft-title');
-    
+
     title.appendChild(document.createElement('br'));
     title.appendChild(
         createTextArea(

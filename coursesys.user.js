@@ -20,7 +20,7 @@ function genData() {
 
     for(var key in gmVal) {
         var val = GM_getValue(key);
-        
+
         if(val)
             data += '&' + gmVal[key] + '=' + val;
     }
@@ -56,7 +56,7 @@ function removeComment(resp) {
         var evt = document.createEvent('HTMLEvents');
 
         evt.initEvent('submit', false, false);
-        form.dispatchEvent(evt); 
+        form.dispatchEvent(evt);
         form.submit();
     }).toString();
     document.body.appendChild(script);

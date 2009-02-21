@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           CAPTCHA decoder for YZU 
+// @name           CAPTCHA decoder for YZU
 // @namespace      crabtw@gmail.com
 // @description    decode CAPTCHA of YZU Course System
 // @include        https://isdna1.yzu.edu.tw/Cnstdsel/index.aspx*
@@ -195,14 +195,14 @@ function fillColor(img, target) {
     return info.filter(function(i) {
         var x, y, w, h, c;
         [[x, y, w, h], c] = i;
-        return h >= ImgHeight / 2;
+        return h >= Math.floor(ImgHeight / 2);
     });
 }
 
 function divPos(info, num) {
     var x, y, w, h, c;
     [[x, y, w, h], c] = info;
-    var size = w / num;
+    var size = Math.floor(w / num);
     var newInfo = [];
 
     for(var n = 1; n < num; ++n) {
@@ -278,7 +278,9 @@ function split(img, info) {
         newContext.fillStyle = 'white';
         newContext.fillRect(0, 0, ImgWidth, ImgHeight);
         newContext.putImageData(
-            newPxs, (ImgWidth-w)/2, (ImgHeight-h)/2
+            newPxs,
+            Math.floor((ImgWidth-w)/2),
+            Math.floor((ImgHeight-h)/2)
         );
 
         return newImg

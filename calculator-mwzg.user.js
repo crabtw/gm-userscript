@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           calculator for MwzG
 // @namespace      crabtw@gmail.com
-// @description    calculate for monkey
+// @description    calculate for money
 // @include        http://mwzg.net/plugin.php?identifier=calculate&module=calculate
 // ==/UserScript==
 

@@ -43,7 +43,7 @@ function infoPage() {
     title.appendChild(document.createElement('br'));
     title.appendChild(
         createTextArea(
-            title.textContent.replace(/^\s+|\s+$/g, ''),
+            title.firstChild.textContent.replace(/^\s+|\s+$/g, ''),
             document.URL
         )
     );

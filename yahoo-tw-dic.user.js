@@ -6,10 +6,13 @@
 // ==/UserScript==
 
 input = document.getElementById('ysearchinput');
-input.blur();
 
 window.addEventListener('keypress', function(e) {
     if(e.altKey && e.shiftKey && e.charCode == 'P'.charCodeAt(0)) {
         input.focus();
     }
+}, false);
+
+window.addEventListener('keypress', function(e) {
+    input.blur();
 }, false);

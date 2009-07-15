@@ -49,10 +49,6 @@ function infoPage() {
     );
 }
 
-function fixSearchForm() {
-    document.getElementsByName('form1')[0].action = '/php/search.phtml';
-}
-
 switch(location.pathname) {
 case '/php/calendar.phtml':
 case '/php/search.phtml':
@@ -60,8 +56,5 @@ case '/php/search.phtml':
     break;
 case '/soft.phtml':
     infoPage();
-    break;
-case '/php/search_top.phtml':
-    fixSearchForm();
     break;
 }

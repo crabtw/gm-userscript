@@ -14,6 +14,6 @@ window.addEventListener('load', function() {
     var [_, a, b] = input.parentNode.
                           previousElementSibling.
                           textContent.
-                          match(/(\d+).+(\d+)=/);
+                          match(/(\d+).+(\d+)/);
     input.value = parseInt(a, 10) + parseInt(b, 10);
 }, false);

@@ -39,7 +39,6 @@ function searchForm() {
     var now = new Date();
     var start = new Date(now.getTime() - now.getDay() * unit);
     var end = new Date(start.getTime() + 7 * unit);
-    console.log(end.toDateString());
 
     selVal(document.getElementsByName('start_year')[0], start.getFullYear());
     selVal(document.getElementsByName('start_month')[0], start.getMonth() + 1);
@@ -81,6 +80,9 @@ function infoPage() {
 }
 
 switch(location.pathname) {
+case '/php/nsearch_top.phtml':
+    location.pathname = '/php/search_top.phtml';
+    break;
 case '/php/search_top.phtml':
     searchForm();
     break;

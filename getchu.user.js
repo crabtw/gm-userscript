@@ -3,6 +3,7 @@
 // @namespace      crabtw@gmail.com
 // @description    copy name and URL easily
 // @include        http://www.getchu.com/*
+// @grant          none
 // ==/UserScript==
 
 function createTextArea(name, url) {
@@ -28,25 +29,18 @@ function searchForm() {
         }
     }
 
-    selVal(document.getElementsByName('genre')[1], 'pc_soft');
+    selVal(document.getElementsByName('genre')[2], 'pc_soft');
     selVal(document.getElementsByName('age')[0], '18:lady');
     selVal(document.getElementsByName('sort2')[0], 'up');
-
-    document.getElementsByName('release_date_start')[0].checked = true;
-    document.getElementsByName('release_date_end')[0].checked = true;
 
     const unit = 86400000;
     var now = new Date();
     var start = new Date(now.getTime() - now.getDay() * unit);
     var end = new Date(start.getTime() + 7 * unit);
 
-    selVal(document.getElementsByName('start_year')[0], start.getFullYear());
-    selVal(document.getElementsByName('start_month')[0], start.getMonth() + 1);
-    selVal(document.getElementsByName('start_day')[0], start.getDate());
-
-    selVal(document.getElementsByName('end_year')[0], end.getFullYear());
-    selVal(document.getElementsByName('end_month')[0], end.getMonth() + 1);
-    selVal(document.getElementsByName('end_day')[0], end.getDate());
+    var fmt = '%Y/%m/%d'
+    document.getElementsByName('start_date')[0].value = start.toLocaleFormat(fmt);
+    document.getElementsByName('end_date')[0].value = end.toLocaleFormat(fmt);
 }
 
 function searchPage() {

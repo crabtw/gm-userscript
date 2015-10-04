@@ -18,7 +18,7 @@ newDiv.style.paddingBottom = '10px';
 var threads = document.getElementById('threads');
 threads.insertBefore(newDiv, threads.firstChild);
 
-button.addEventListener('click', function() {
+button.addEventListener('click', function(ev) {
     var links = threads.getElementsByTagName('a');
 
     for (var i = 0; i < links.length; ++i) {
@@ -28,4 +28,6 @@ button.addEventListener('click', function() {
             GM_openInTab(link.href, true);
         }
     }
+
+    ev.target.blur();
 }, false);

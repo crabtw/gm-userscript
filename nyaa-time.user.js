@@ -3,7 +3,6 @@
 // @namespace   crabtw@gmail.com
 // @description show submitted time
 // @include     http://*.nyaa.se/*
-// @exclude     http://*.nyaa.se/*page=*
 // @version     1
 // @grant       GM_xmlhttpRequest
 // ==/UserScript==
@@ -23,7 +22,7 @@ function addSubmittedTime(rss) {
 
     var thDate = document.createElement('th');
     thDate.textContent = 'Date';
-    thDate.style.width = '90px';
+    thDate.style.width = '120px';
 
     thName.parentNode.insertBefore(thDate, thName);
 
@@ -42,7 +41,7 @@ function addSubmittedTime(rss) {
         date.style.whiteSpace = 'nowrap';
         date.style.fontWeight = 'bold';
 
-        date.innerHTML = time.toLocaleFormat("%m-%d, %H:%M");
+        date.innerHTML = time.toLocaleFormat("%Y-%m-%d, %H:%M");
         name.parentNode.insertBefore(date, name);
         name.style.paddingLeft = '8px';
     }
@@ -63,4 +62,15 @@ if (loc.search.match(/page=/) === null) {
             }
         }
     });
+} else if (loc.search.match(/page=view/)) {
+    var tdTime = document.evaluate(
+        "//div[@id='main']/div[3]/div/table[2]/tbody/tr[2]/td[4]",
+        document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null
+    ).singleNodeValue;
+
+    var utc = tdTime.textContent.match(/(\d+)-(\d+)-(\d+), (\d+):(\d+) UTC/);
+    var [_, year, mon, day, hr, min ] = utc.map(function(x) { return parseInt(x, 10); });
+    var local = new Date(Date.UTC(year, mon - 1, day, hr, min));
+
+    tdTime.textContent = local.toLocaleFormat("%Y-%m-%d, %H:%M");
 }

@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           Getchu
+// @name           getchu
 // @namespace      crabtw@gmail.com
 // @description    copy name and URL easily
 // @include        http://www.getchu.com/*

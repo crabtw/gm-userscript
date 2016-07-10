@@ -3,6 +3,7 @@
 // @namespace   crabtw@gmail.com
 // @description show submitted time
 // @include     http://*.nyaa.se/*
+// @include     https://*.nyaa.se/*
 // @version     1
 // @grant       GM_xmlhttpRequest
 // ==/UserScript==

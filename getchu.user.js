@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           getchu
+// @name           Getchu
 // @namespace      crabtw@gmail.com
 // @description    copy name and URL easily
 // @include        http://www.getchu.com/*
@@ -74,10 +74,8 @@ function infoPage() {
 }
 
 switch(location.pathname) {
-case '/php/nsearch_top.phtml':
-    location.pathname = '/php/search_top.phtml';
-    break;
 case '/php/search_top.phtml':
+case '/php/nsearch_top.phtml':
     searchForm();
     break;
 case '/php/search.phtml':
